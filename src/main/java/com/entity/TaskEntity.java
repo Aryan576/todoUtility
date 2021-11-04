@@ -1,5 +1,7 @@
 package com.entity;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -8,13 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "taks")
+@Table(name = "tasks")
 public class TaskEntity {
 	
 	
@@ -22,12 +24,18 @@ public class TaskEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long taskid;
 	
-	String taskname,descriptionp;
-	Date startdate,enddate;
+	String taskname,description;
 	
-	@CreationTimestamp
-	Date tasktime;
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	LocalDate startDate;
+	
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	LocalDate endDate;
+	
+
+	String tasktime;
 	
 	Long userid;
+	Integer important=0;
 
 }

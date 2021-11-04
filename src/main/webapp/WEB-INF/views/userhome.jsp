@@ -1,15 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>todoAssist</title>
-<!-- Bootstrap CSS-->
-<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-<!-- Font Awesome CSS-->
+<title>ToDoAssist</title>
+<!-- General CSS Files -->
+<link rel="stylesheet" href="assets/css/app.min.css">
+<!-- Template CSS -->
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<!-- Custom style CSS -->
+<link rel="stylesheet" href="assets/css/custom.css">
+<link rel='shortcut icon' type='image/x-icon'
+	href='assets/img/favicon.ico' />
+<!-- Font Awesome -->
 <link rel="stylesheet"
-	href="vendor/font-awesome/css/font-awesome.min.css">
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <!-- Custom Font Icons CSS-->
 <link rel="stylesheet" href="css/font.css">
 <!-- Google fonts - Muli-->
@@ -22,278 +29,372 @@
 <link rel="stylesheet" href="css/custom.css">
 <!-- Favicon-->
 <link rel="shortcut icon" href="img/favicon.ico">
-
-<!-- Font Awesome -->
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-
 </head>
 <body>
+	<div class="loader"></div>
+	<div id="app">
+		<div class="main-wrapper main-wrapper-1">
 
 
-	<%@include file="userheader.jsp"%>
-	<div class="d-flex align-items-stretch">
-		<!-- Sidebar Navigation-->
-		<%@include file="usersidebar.jsp"%>
-
-	
 
 
-		<!-- Sidebar Navigation end-->
-		<div class="page-content">
-			<div class="page-header">
-				<div class="container-fluid">
-					<h2 class="h5 no-margin-bottom">Dashboard</h2>
-				</div>
-			</div>
-			<section class="no-padding-top no-padding-bottom">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-3 col-sm-6">
-							<div class="statistic-block block">
-								<div
-									class="progress-details d-flex align-items-end justify-content-between">
-									<div class="title">
-										<div class="icon">
-											<i class="far fa-calendar-check"></i>
+			<%@include file="userheader.jsp"%>
+
+
+
+			<!-- Main Content -->
+			<div class="main-content">
+				<section class="section">
+					<div class="row ">
+						<div class="col">
+							<div class="card">
+								<div class="card-statistic-4">
+									<div class="align-items-center justify-content-between">
+										<div class="row ">
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+												<div class="card-content">
+													<h5 class="font-15">Today's Task</h5>
+													<h2 class="mb-3 font-18">25</h2>
+													<p class="mb-0">
+														<span class="col-green"></span>
+													</p>
+												</div>
+											</div>
+											<div class="col">
+												<div class="banner-img">
+													<img src="assets/img/TodayTask.jpg" alt="">
+												</div>
+											</div>
 										</div>
-										<strong>Today's Task</strong>
 									</div>
-									<div class="number dashtext-1">20</div>
-								</div>
-								<div class="progress progress-template">
-									<div role="progressbar" style="width: 20%" aria-valuenow="30"
-										aria-valuemin="0" aria-valuemax="100"
-										class="progress-bar progress-bar-template dashbg-1"></div>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-6">
-							<div class="statistic-block block">
-								<div
-									class="progress-details d-flex align-items-end justify-content-between">
-									<div class="title">
-										<div class="icon">
-											<i class="far fa-star"></i>
+						<div class="col">
+							<div class="card">
+								<div class="card-statistic-4">
+									<div class="align-items-center justify-content-between">
+										<div class="row ">
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+												<div class="card-content">
+													<h5 class="font-15">Important Task</h5>
+													<h2 class="mb-3 font-18">17</h2>
+													<!-- <p class="mb-0"><span class="col-orange">09%</span> Decrease</p> -->
+												</div>
+											</div>
+											<div class="col">
+												<div class="banner-img">
+													<img src="assets/img/ImportantTask.png" alt="">
+												</div>
+											</div>
 										</div>
-										<strong>Important Tasks</strong>
 									</div>
-									<div class="number dashtext-2">58</div>
-								</div>
-								<div class="progress progress-template">
-									<div role="progressbar" style="width: 58%" aria-valuenow="70"
-										aria-valuemin="0" aria-valuemax="100"
-										class="progress-bar progress-bar-template dashbg-2"></div>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-6">
-							<div class="statistic-block block">
-								<div
-									class="progress-details d-flex align-items-end justify-content-between">
-									<div class="title">
-										<div class="icon">
-											<i class="fas fa-tasks"></i>
+						<div class="col">
+							<div class="card">
+								<div class="card-statistic-4">
+									<div class="align-items-center justify-content-between">
+										<div class="row ">
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+												<div class="card-content">
+													<h5 class="font-15">My Tasks</h5>
+													<h2 class="mb-3 font-18">2,128</h2>
+													<!--  <p class="mb-0"><span class="col-green">18%</span>
+                            Increase</p> -->
+												</div>
+											</div>
+											<div class="col">
+												<div class="banner-img">
+													<img src="assets/img/MyTask.jpg" alt="">
+
+												</div>
+											</div>
 										</div>
-										<strong>My Tasks</strong>
 									</div>
-									<div class="number dashtext-3">140</div>
-								</div>
-								<div class="progress progress-template">
-									<div role="progressbar" style="width: 80%" aria-valuenow="55"
-										aria-valuemin="0" aria-valuemax="100"
-										class="progress-bar progress-bar-template dashbg-3"></div>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-6">
-							<div class="statistic-block block">
-								<div
-									class="progress-details d-flex align-items-end justify-content-between">
-									<div class="title">
-										<div class="icon">
-											<i class="fas fa-users"></i>
-										</div>
-										<strong>My Groups</strong>
-									</div>
-									<div class="number dashtext-4">25</div>
-								</div>
-								<div class="progress progress-template">
-									<div role="progressbar" style="width: 25%" aria-valuenow="35"
-										aria-valuemin="0" aria-valuemax="100"
-										class="progress-bar progress-bar-template dashbg-4"></div>
-								</div>
-							</div>
-						</div>
+
 					</div>
-				</div>
-			</section>
-			<section class="no-padding-bottom">
-				<div class="container-fluid">
+
 					<div class="row">
-						<div class="col-lg-4">
-							<div class="bar-chart block no-margin-bottom">
-								<canvas id="barChartExample1"></canvas>
-							</div>
-							<div class="bar-chart block">
-								<canvas id="barChartExample2"></canvas>
+						<div class="col">
+							<div class="card">
+								<div class="card-header">
+									<h4>Pie Chart</h4>
+								</div>
+								<div class="card-body">
+
+									<canvas id="pieChart"
+										style="display: block; height: 187px; width: 366px;"></canvas>
+
+								</div>
 							</div>
 						</div>
-						<div class="col-lg-8">
-							<div class="line-cahrt block">
-								<canvas id="lineCahrt"></canvas>
+						<div class="col">
+							<div class="card">
+								<div class="card-header">
+									<h4>Line Chart</h4>
+								</div>
+								<div class="card-body">
+									<canvas id="lineChart"></canvas>
+								</div>
 							</div>
 						</div>
+
 					</div>
-				</div>
-			</section>
-
-
-			<section class="no-padding-bottom">
-				<div class="container-fluid">
+					
 					<div class="row">
-						<div class="col-lg-6">
-							<div class="checklist-block block">
-								<div class="title">
-									<strong>To Do List</strong>
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header">
+									<h4>Today's Task</h4>
+									<div class="card-header-form">
+										<form>
+											<div class="input-group">
+												<input type="text" class="form-control" id="searchtask"
+													placeholder="Search">
+												<div class="input-group-btn">
+													<button class="btn btn-primary">
+														<i class="fas fa-search"></i>
+													</button>
+												</div>
+											</div>
+										</form>
+									</div>
 								</div>
-								<div class="checklist">
-									<div class="item d-flex align-items-center">
-										<input type="checkbox" id="input-1" name="input-1"
-											class="checkbox-template"> <label for="input-1">Breakfast</label>
-									</div>
-									<div class="item d-flex align-items-center">
-										<input type="checkbox" id="input-1" name="input-1"
-											class="checkbox-template"> <label for="input-1">College</label>
-									</div>
-									<div class="item d-flex align-items-center">
-										<input type="checkbox" id="input-1" name="input-1"
-											class="checkbox-template"> <label for="input-1">Lunch</label>
-									</div>
-									<div class="item d-flex align-items-center">
-										<input type="checkbox" id="input-1" name="input-1"
-											class="checkbox-template"> <label for="input-1">Newspaper</label>
-									</div>
-
-
-
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="block margin-bottom-sm">
-								<div class="title">
-									<strong>Today's Task</strong>
-								</div>
-								<div class="table-responsive">
-									<table class="table table-striped">
-										<thead>
+								<div class="card-body p-0">
+									<div class="table-responsive">
+										<table class="table table-striped">
 											<tr>
-												<th>#</th>
+												<th class="text-center">
+													<div
+														class="custom-checkbox custom-checkbox-table custom-control">
+														<input type="checkbox" data-checkboxes="mygroup"
+															data-checkbox-role="dad" class="custom-control-input"
+															id="checkbox-all"> <label for="checkbox-all"
+															class="custom-control-label">&nbsp;</label>
+													</div>
+												</th>
 												<th>Task Name</th>
-												<th>StartDate</th>
-												<th>EndDate</th>
-												<th>Timing</th>
+												<th>Description</th>
+												<th>Assign Date</th>
+												<th>Due Date</th>
+												<th>Time</th>
+												<th>Action</th>
 											</tr>
-										</thead>
-										<tbody>
+											<tbody id="task">
+												<tr>
+													<td class="p-0 text-center">
+														<div class="custom-checkbox custom-control">
+															<input type="checkbox" data-checkboxes="mygroup"
+																class="custom-control-input" id="checkbox-1"> <label
+																for="checkbox-1" class="custom-control-label"
+																data-toggle="tooltip" title="Complete Task"></label>
+														</div>
+													</td>
+													<td>Lunch</td>
+													<td>abc</td>
+													<td>2018-01-20</td>
+													<td>2019-05-28</td>
+													<td>7:00 AM</td>
+													<td><a href="#" class="btn btn-icon btn-primary"><i
+															class="far fa-edit" data-toggle="tooltip"
+															title="Edit Task"></i></a>&nbsp;&nbsp; <a href="#"
+														class="btn btn-icon btn-danger"><i
+															class="fas fa-trash-alt" data-toggle="tooltip"
+															title="Delete Task"></i></a>&nbsp;&nbsp; <a href="#"
+														class="btn btn-icon btn-light" data-toggle="tooltip"
+														title="Mark as Important"><i class="fas fa-star"></i></a>&nbsp;&nbsp;
+													</td>
+												</tr>
+												<tr>
+													<td class="p-0 text-center">
+														<div class="custom-checkbox custom-control">
+															<input type="checkbox" data-checkboxes="mygroup"
+																class="custom-control-input" id="checkbox-2"> <label
+																for="checkbox-2" class="custom-control-label"
+																data-toggle="tooltip" title="Complete Task"></label>
+														</div>
+													</td>
+													<td>Lunch</td>
+
+													<td>abc</td>
+													<td>2018-01-20</td>
+													<td>2019-05-28</td>
+													<td>7:00 AM</td>
+													<td><a href="#" class="btn btn-icon btn-primary"><i
+															class="far fa-edit" data-toggle="tooltip"
+															title="Edit Task"></i></a>&nbsp;&nbsp; <a href="#"
+														class="btn btn-icon btn-danger"><i
+															class="fas fa-trash-alt" data-toggle="tooltip"
+															title="Delete Task"></i></a>&nbsp;&nbsp; <a href="#"
+														class="btn btn-icon btn-light" data-toggle="tooltip"
+														title="Mark as Important"><i class="fas fa-star"></i></a>&nbsp;&nbsp;
+													</td>
+												</tr>
+												<tr>
+													<td class="p-0 text-center">
+														<div class="custom-checkbox custom-control">
+															<input type="checkbox" data-checkboxes="mygroup"
+																class="custom-control-input" id="checkbox-3"> <label
+																for="checkbox-3" class="custom-control-label"
+																data-toggle="tooltip" title="Complete Task"></label>
+														</div>
+													</td>
+													<td>Lunch</td>
+
+													<td>abc</td>
+													<td>2018-01-20</td>
+													<td>2019-05-28</td>
+													<td>7:00 AM</td>
+													<td><a href="#" class="btn btn-icon btn-primary"><i
+															class="far fa-edit" data-toggle="tooltip"
+															title="Edit Task"></i></a>&nbsp;&nbsp; <a href="#"
+														class="btn btn-icon btn-danger"><i
+															class="fas fa-trash-alt" data-toggle="tooltip"
+															title="Delete Task"></i></a>&nbsp;&nbsp; <a href="#"
+														class="btn btn-icon btn-light" data-toggle="tooltip"
+														title="Mark as Important"><i class="fas fa-star"></i></a>&nbsp;&nbsp;
+													</td>
+												</tr>
+												<tr>
+													<td class="p-0 text-center">
+														<div class="custom-checkbox custom-control">
+															<input type="checkbox" data-checkboxes="mygroup"
+																class="custom-control-input" id="checkbox-4"> <label
+																for="checkbox-4" class="custom-control-label"
+																data-toggle="tooltip" title="Complete Task"></label>
+														</div>
+													</td>
+													<td>Lunch</td>
+
+													<td>abc</td>
+													<td>2018-01-20</td>
+													<td>2019-05-28</td>
+													<td>7:00 AM</td>
+													<td><a href="#" class="btn btn-icon btn-primary"><i
+															class="far fa-edit" data-toggle="tooltip"
+															title="Edit Task"></i></a>&nbsp;&nbsp; <a href="#"
+														class="btn btn-icon btn-danger"><i
+															class="fas fa-trash-alt" data-toggle="tooltip"
+															title="Delete Task"></i></a>&nbsp;&nbsp; <a href="#"
+														class="btn btn-icon btn-light" data-toggle="tooltip"
+														title="Mark as Important"><i class="fas fa-star"></i></a>&nbsp;&nbsp;
+													</td>
+												</tr>
+												<tr>
+													<td class="p-0 text-center">
+														<div class="custom-checkbox custom-control">
+															<input type="checkbox" data-checkboxes="mygroup"
+																class="custom-control-input" id="checkbox-5"> <label
+																for="checkbox-5" class="custom-control-label"
+																data-toggle="tooltip" title="Complete Task"></label>
+														</div>
+													</td>
+													<td>Lunch</td>
+
+													<td>abc</td>
+													<td>2018-01-20</td>
+													<td>2019-05-28</td>
+													<td>7:00 AM</td>
+													<td><a href="#" class="btn btn-icon btn-primary"><i
+															class="far fa-edit" data-toggle="tooltip"
+															title="Edit Task"></i></a>&nbsp;&nbsp; <a href="#"
+														class="btn btn-icon btn-danger"><i
+															class="fas fa-trash-alt" data-toggle="tooltip"
+															title="Delete Task"></i></a>&nbsp;&nbsp; <a href="#"
+														class="btn btn-icon btn-light" data-toggle="tooltip"
+														title="Mark as Important"><i class="fas fa-star"></i></a>&nbsp;&nbsp;
+													</td>
+												</tr>
+											</tbody>
 											<tr>
-												<th scope="row">1</th>
-												<td>Breakfast</td>
-												<td>12-10-21</td>
-												<td>15-10-21</td>
-												<td>7:00am</td>
+												<td colspan="7" style="text-align: center;"><a
+													href="myday"
+													class="card-footer card-link text-center small">View
+														All</a></td>
 											</tr>
-											<tr>
-												<th scope="row">2</th>
-												<td>College</td>
-												<td>12-10-21</td>
-												<td>15-10-21</td>
-												<td>9:00am</td>
-											</tr>
-											<tr>
-												<th scope="row">3</th>
-												<td>Lunch</td>
-												<td>12-10-21</td>
-												<td>15-10-21</td>
-												<td>1:30pm</td>
-											</tr>
-											<tr>
-												<th scope="row">4</th>
-												<td>Newspaper</td>
-												<td>12-10-21</td>
-												<td>15-10-21</td>
-												<td>5:30pm</td>
-											</tr>
-										</tbody>
-									</table>
+											<br>
+										</table>
+
+									</div>
+
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</section>
 
-			<footer class="footer">
-				<div class="footer__block block no-margin-bottom">
-					<div class="container-fluid text-center">
-						<!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-						<p class="no-margin-bottom">Made with <i class="fas fa-heart"></i> by me.</p>
-					</div>
-				</div>
-			</footer>
+				</section>
+			</div>
 		</div>
 	</div>
-	
-	<!-- JavaScript files-->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/popper.js/umd/popper.min.js">
-		
-	</script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="vendor/jquery.cookie/jquery.cookie.js">
-		
-	</script>
-	<script src="vendor/chart.js/Chart.min.js"></script>
-	<script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-	<script src="js/charts-home.js"></script>
-	<script src="js/front.js"></script>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
 	<script type="text/javascript">
-		function checkTime(i) {
-			if (i < 10) {
-				i = "0" + i;
+		//pie
+		var ctxP = document.getElementById("pieChart").getContext('2d');
+		var myPieChart = new Chart(ctxP,
+				{
+					type : 'pie',
+					data : {
+						labels : [ "TodayTask", "ImportantTask", "MyTasks",
+								],
+						datasets : [ {
+							data : [ 50, 80, 100],
+							backgroundColor : [ "#6610f2", "#7c4dff",
+									"#b388ff"],
+							hoverBackgroundColor : [ "#6610f2", "#7c4dff",
+									"#b388ff"]
+						} ]
+					},
+					options : {
+						responsive : true
+					}
+				});
+	</script>
+	<script type="text/javascript">
+		//line
+		var ctxL = document.getElementById("lineChart").getContext('2d');
+		var myLineChart = new Chart(ctxL, {
+			type : 'line',
+			data : {
+				labels : [ "January", "February", "March", "April", "May",
+						"June", "July", "August", "September", "October",
+						"November", "December" ],
+				datasets : [ /* {
+					label : "Tasks",
+					data : [ 65, 59, 80, 81, 56, 55, 40, 80, 81, 56, 55, 40 ],
+					backgroundColor : [ 'rgba(105, 0, 132, .2)', ],
+					borderColor : [ 'rgba(200, 99, 132, .7)', ],
+					borderWidth : 2
+				}, */ {
+					label : "Tasks",
+					data : [ 28, 48, 40, 19, 86, 27, 90, 40, 19, 86, 27, 90 ],
+					backgroundColor : [ 'rgba(0, 137, 132, .2)', ],
+					borderColor : [ 'rgba(0, 10, 130, .7)', ],
+					borderWidth : 2
+				} ]
+			},
+			options : {
+				responsive : true
 			}
-			return i;
-		}
-
-		function startTime() {
-			var today = new Date();
-			var h = today.getHours();
-			var m = today.getMinutes();
-			var s = today.getSeconds();
-			
-			m = checkTime(m);
-			s = checkTime(s);
-			document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
-			t = setTimeout(function() {
-				startTime()
-			}, 500);
-		}
-		startTime();
+		});
 	</script>
-
 	<script>
-	var $rows = $('#table li');
-	$('#search').keyup(function() {
-	    var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
-	    
-	    $rows.show().filter(function() {
-	        var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
-	        return !~text.indexOf(val);
-	    }).hide();
-	});
+		var $rows = $('#task tr');
+		$('#searchtask').keyup(function() {
+			var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+
+			$rows.show().filter(function() {
+				var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+				return !~text.indexOf(val);
+			}).hide();
+		});
 	</script>
-
-
 </body>
 </html>

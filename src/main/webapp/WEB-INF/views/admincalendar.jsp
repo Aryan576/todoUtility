@@ -4,34 +4,22 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>todoAssist</title>
-<!-- Bootstrap CSS-->
-<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-<!-- Font Awesome CSS-->
-<link rel="stylesheet"
-	href="vendor/font-awesome/css/font-awesome.min.css">
-<!-- Custom Font Icons CSS-->
-<link rel="stylesheet" href="css/font.css">
-<!-- Google fonts - Muli-->
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
-<!-- theme stylesheet-->
-<link rel="stylesheet" href="css/style.default.css"
-	id="theme-stylesheet">
-<!-- Custom stylesheet - for your changes-->
-<link rel="stylesheet" href="css/custom.css">
-<!-- Favicon-->
-<link rel="shortcut icon" href="img/favicon.ico">
-
+<title>ToDoAssist</title>
+<!-- General CSS Files -->
+<link rel="stylesheet" href="assets/css/app.min.css">
+<!-- Template CSS -->
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<!-- Custom style CSS -->
+<link rel="stylesheet" href="assets/css/custom.css">
+<link rel='shortcut icon' type='image/x-icon'
+	href='assets/img/favicon.ico' />
 <!-- Font Awesome -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-
 <!-- Bootstrap CSS -->
 
 <link href="./calendar-styles.min.css" rel="stylesheet" />
-
-
 <style>
 #calendar .calendar-view .moment-today {
 	border: 2px solid #00ff90 !important;
@@ -160,14 +148,14 @@
 
 @media ( min-width : 992px) {
 	#calendar .calendar-view .day.grid {
-		min-height: 9vw;
+		min-height: 4.8vw;
 	}
 	#calendar .calendar-view .day.grid h5 small {
 		display: none;
 	}
 	#calendar .calendar-view .day.grid .events-holder a {
-		width: 25px;
-		height: 25px;
+		width: 10px;
+		height: 15px;
 		border-radius: 15px;
 		margin-right: 2px;
 	}
@@ -179,164 +167,36 @@
 	}
 }
 </style>
-
-
 </head>
 <body>
+	<div class="loader"></div>
+	<div id="app">
+		<div class="main-wrapper main-wrapper-1">
+			<%@include file="adminheader.jsp"%>
+			<!-- Main Content -->
+			<div class="main-content">
 
-	<header class="header">
-		<nav class="navbar navbar-expand-lg">
-			<div class="search-panel">
-				<div
-					class="search-inner d-flex align-items-center justify-content-center">
-					<div class="close-btn">
-						Close <i class="fa fa-close"></i>
-					</div>
-					<form id="searchForm" action="#">
-						<div class="form-group">
-							<input type="search" name="search"
-								placeholder="What are you searching for...">
-							<button type="submit" class="submit">Search</button>
-						</div>
-					</form>
-				</div>
-			</div>
-			<div
-				class="container-fluid d-flex align-items-center justify-content-between">
-				<div class="navbar-header">
-					<!-- Navbar Header-->
-					<a href="adminhome" class="navbar-brand">
-						<div class="brand-text brand-big visible text-uppercase">
-							<strong class="text-primary">todo</strong><strong>Assist</strong>
-						</div>
-						<div class="brand-text brand-sm">
-							<strong class="text-primary">TD</strong><strong>A</strong>
-						</div>
-					</a>
-					<!-- Sidebar Toggle Btn-->
-					<button class="sidebar-toggle">
-						<i class="fas fa-bars"></i>
-					</button>
-				</div>
-				<div class="right-menu list-inline no-margin-bottom">
-					<div class="list-inline-item">
-						<!-- Time format -->
-						<div id="time" style="font-size: 25px;"></div>
-					</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-header">
 
 
-					<div class="list-inline-item dropdown">
-						<a id="navbarDropdownMenuLink1" href="http://example.com"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-							class="nav-link messages-toggle"><i
-							class="fas fa-check-square" style="font-size: 20px;"></i><span
-							class="badge dashbg-1">5</span></a>
-						<div aria-labelledby="navbarDropdownMenuLink1"
-							class="dropdown-menu messages" style="display: none;">
-							<a href="#" class="dropdown-item">
-								<div class="text d-flex justify-content-between">
-									<strong>Active Users</strong>
+								<h4>Calendar</h4>
+								<div class="card-header-action">
+									<h4>
+										<a href="adminhome"><b style="color: blue">Dashboard</b></a>
+										&nbsp;/ Calendar
+									</h4>
+
 								</div>
 
-							</a> <a href="#"
-								class="dropdown-item message d-flex align-items-center">
-								<div class="profile">
-									<img src="img/avatar-3.jpg" alt="..." class="img-fluid">
-									<div class="status online"></div>
-								</div>
-								<div class="content">
-									<strong class="d-block">Nadia Halsey</strong><span
-										class="d-block">lorem ipsum dolor sit amit</span><small
-										class="date d-block">9:30am</small>
-								</div>
-							</a><a href="#"
-								class="dropdown-item message d-flex align-items-center">
-								<div class="profile">
-									<img src="img/avatar-2.jpg" alt="..." class="img-fluid">
-									<div class="status away"></div>
-								</div>
-								<div class="content">
-									<strong class="d-block">Peter Ramsy</strong><span
-										class="d-block">lorem ipsum dolor sit amit</span><small
-										class="date d-block">7:40am</small>
-								</div>
-							</a><a href="activeusers" class="dropdown-item text-center message">
-								<strong>See All Users <i class="fa fa-angle-right"></i>
-							</strong>
-							</a>
+							</div>
+
 						</div>
 					</div>
-
-
-
-
-
-
-					<div class="list-inline-item logout">
-						<a id="logout" href="/" style="font-size: 22px" class="nav-link">Logout
-							<i class="icon-logout"></i>
-						</a>
-					</div>
-
-
-				</div>
-			</div>
-		</nav>
-	</header>
-
-	<div class="d-flex align-items-stretch">
-		<!-- Sidebar Navigation-->
-		<nav id="sidebar">
-			<!-- Sidebar Header-->
-			<div class="sidebar-header d-flex align-items-center">
-				<i class="fas fa-user-circle" style="font-size: 30px"></i>&nbsp;&nbsp;&nbsp;
-				<div class="title">
-					<h1 class="h5">Devesh Sheth</h1>
-					<p>deveshssheth2018@gmail.com</p>
-				</div>
-			</div>
-			<div class="col">
-				<input class="form-control" type="text" id="myInput" onkeyup="myFunction()"
-					placeholder="Search" aria-label="Search">
-			</div>
-			<br>
-			<!-- Sidebar Navidation Menus-->
-			<span class="heading">Main</span>
-			<ul id="myUL" class="list-unstyled">
-				<li><a href="adminhome"> <i
-						class="fas fa-home"></i>Home
-				</a></li>
-				<li><a href="todayusers"> <i class="fas fa-calendar-check"></i>Today
-						User
-				</a></li>
-				<li><a href="activeusers"> <i class="fas fa-check-circle"></i>Active
-						User
-				</a></li>
-				<li><a href="adminusers"> <i class="fas fa-users"></i>Users
-				</a></li>
-				<li class="active"><a href="admincalendar"> <i
-						class="far fa-calendar-alt"></i>Calendar
-				</a></li>
-				<li><a href="adminnotes"> <i class="fas fa-file-alt"></i>Sticky
-						Notes
-				</a></li>
-
-
-			</ul>
-		</nav>
-
-		<div class="page-content">
-			<div class="page-header">
-				<div class="container-fluid">
-					<h2 class="h5 no-margin-bottom">Calendar</h2>
 				</div>
 
-
-			</div>
-
-
-
-			<div class="container">
 
 				<div class="container-fluid calendar" id="calendar">
 					<header>
@@ -345,8 +205,8 @@
 								class="col-sm-9 d-flex justify-content-between align-items-center my-2">
 								<!-- Calendar "prev" button -->
 								<button data-toggle="calendar" data-action="prev"
-									class="btn btn-indigo"
-									style="background-color: #864DD9; color: #fff">
+									class="btn btn-info"
+									style="background-color: #33b5e5; color: #fff">
 									<i class="fa fa-chevron-left"></i>
 								</button>
 
@@ -356,8 +216,8 @@
 
 								<!-- Calendar "next" button -->
 								<button data-toggle="calendar" data-action="next"
-									class="btn btn-indigo"
-									style="background-color: #864DD9; color: #fff">
+									class="btn btn-info"
+									style="background-color: #33b5e5; color: #fff">
 									<i class="fa fa-chevron-right"></i>
 								</button>
 							</div>
@@ -365,27 +225,27 @@
 							<div
 								class="col-sm-3 d-flex justify-content-between align-items-center my-2">
 								<button data-toggle="calendar" data-action="grid"
-									class="btn btn-indigo d-none d-lg-block"
-									style="background-color: #864DD9; color: #fff">
+									class="btn btn-info d-none d-lg-block"
+									style="background-color: #33b5e5; color: #fff">
 									<i class="fa fa-calendar"></i>
 								</button>
 
 								<button data-toggle="calendar" data-action="list"
-									class="btn btn-indigo d-none d-lg-block"
-									style="background-color: #864DD9; color: #fff">
+									class="btn btn-info d-none d-lg-block"
+									style="background-color: #33b5e5; color: #fff">
 									<i class="fa fa-list"></i>
 								</button>
 
 								<!-- Calendar "today" button -->
 								<button data-toggle="calendar" data-action="today"
-									class="btn btn-indigo"
-									style="background-color: #864DD9; color: #fff">
+									class="btn btn-info"
+									style="background-color: #33b5e5; color: #fff">
 									<b>Today</b>
 								</button>
 							</div>
 						</div>
 
-						<div style="background-color: #282B2F"
+						<div style="background-color: #33b5e5"
 							class="row d-none d-lg-flex p-1 text-white">
 							<h5 class="col-sm p-1 text-center">Sunday</h5>
 							<h5 class="col-sm p-1 text-center">Monday</h5>
@@ -396,25 +256,16 @@
 							<h5 class="col-sm p-1 text-center">Saturday</h5>
 						</div>
 					</header>
+
 				</div>
-				<br />
+
 			</div>
 
-
-
 		</div>
-
 	</div>
-	<script type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-		crossorigin="anonymous"></script>
-	<script type="text/javascript"
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-		crossorigin="anonymous"></script>
+
+
+	<!-- Calendar -->
 	<script type="text/javascript"
 		src="https://momentjs.com/downloads/moment.min.js"></script>
 	<script type="text/javascript"
@@ -648,19 +499,15 @@
 											: v.StartDate + ' - ' + v.EndDate;
 
 									var tooltipTemplate = '<div>' + '<div>'
-											+ v.CourseName + '</div>' + '<hr>'
-											+ '<div>' + v.CityTownSuburb + ', '
-											+ v.StateProvince + '</div>'
-											+ '<div>Availibility: '
-											+ v.Availibility + '</div>'
-											+ '<div>' + dateTemplate + '</div>'
-											+ '<div>Time: ' + v.StartTime
-											+ ' - ' + v.EndTime + '</div>'
-											+ '</div>';
+											+ v.TaskName + '</div>' + '<hr>'
+											+ '<div>' + v.Description + ', '
+											+ '</div>' + '<div>' + dateTemplate
+											+ '</div>' + '<div>Time: ' + v.Time
+											+ '</div>' + '</div>';
 
 									var eventTemplate = '<a class="event p-1 pl-2 pr-2 mb-1 text-truncate small bg-' + v.ColourCode + ' text-white" data-toggle="tooltip" data-placement="top" data-html="true" title="' + tooltipTemplate + '">'
 											+ '<span class="course-name text-truncate small text-white">'
-											+ v.CourseName + '</span>' + '</a>';
+											+ v.TaskName + '</span>' + '</a>';
 
 									$(dateSelector).parent().addClass(
 											'show-only-list');
@@ -809,367 +656,54 @@
 
 		})(jQuery);
 
-		var data = {
+		/* var data = {
 			"EventsList" : [
 					{
-						"EventId" : "EVT-37431-C3EQQF",
-						"CourseId" : 2,
-						"CourseName" : "Counterbalanced/Vertical Mast Forklift Operator Training",
-						"StartDate" : "23-10-2019",
-						"StartTime" : "7:59",
-						"EndDate" : "23-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 4,
-						"CityTownSuburb" : "KITIMAT",
-						"StateProvinceId" : 1,
-						"StateProvince" : "BC",
-						"Availibility" : 5,
-						"ColourCode" : 0
+						"TaskId" : 2,
+						"TaskName" : "( Task Name )",
+						"StartDate" : "29-10-2021",
+						"Time" : "(Task Time )",
+						"EndDate" : "29-10-2021",
+						"Description" : "( Task Description )",
+						"ColourCode" : 10
 					},
+				
 					{
-						"EventId" : "EVT-37389-ADNY11",
-						"CourseId" : 4,
-						"CourseName" : "In-House Instructor Training",
-						"StartDate" : "23-10-2019",
-						"StartTime" : "8:30",
-						"EndDate" : "23-10-2019",
-						"EndTime" : "4:30",
-						"CityTownId" : 2,
-						"CityTownSuburb" : "CASSIDY (NANAIMO)",
-						"StateProvinceId" : 1,
-						"StateProvince" : "BC",
-						"Availibility" : 10,
-						"ColourCode" : 1
-					},
-					{
-						"EventId" : "EVT-37615-K64XTI",
-						"CourseId" : 1,
-						"CourseName" : "Aerial Work Platform (Non OSSA) Operator Training",
-						"StartDate" : "24-10-2019",
-						"StartTime" : "7:59",
-						"EndDate" : "24-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 11,
-						"CityTownSuburb" : "EDMONTON",
-						"StateProvinceId" : 3,
-						"StateProvince" : "AB",
-						"Availibility" : 5,
-						"ColourCode" : 5
-					},
-					{
-						"EventId" : "EVT-37497-FI7OMG",
-						"CourseId" : 3,
-						"CourseName" : "Fall Protection Training (FPG - Interprovincial)",
-						"StartDate" : "24-10-2019",
-						"StartTime" : "7:59",
-						"EndDate" : "24-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 8,
-						"CityTownSuburb" : "CALGARY",
-						"StateProvinceId" : 3,
-						"StateProvince" : "AB",
-						"Availibility" : 13,
-						"ColourCode" : 6
-					},
-					{
-						"EventId" : "EVT-37358-0Q5OUT",
-						"CourseId" : 1,
-						"CourseName" : "Aerial Work Platform (Non OSSA) Operator Training",
-						"StartDate" : "25-10-2019",
-						"StartTime" : "7:59",
+						"TaskId" : 2,
+						"TaskName" : "( Task Name )",
+						"StartDate" : "15-11-2021",
+						"Time" : "(Task Time )",
 						"EndDate" : "25-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 1,
-						"CityTownSuburb" : "COQUITLAM",
-						"StateProvinceId" : 1,
-						"StateProvince" : "BC",
-						"Availibility" : 5,
-						"ColourCode" : 5
+						"Description" : "( Task Description )",
+						"ColourCode" : 3
 					},
 					{
-						"EventId" : "EVT-37395-4NSE1T",
-						"CourseId" : 2,
-						"CourseName" : "Counterbalanced/Vertical Mast Forklift Operator Training",
-						"StartDate" : "25-10-2019",
-						"StartTime" : "8:30",
+						"TaskId" : 2,
+						"TaskName" : "( Task Name )",
+						"StartDate" : "21-10-2021",
+						"Time" : "(Task Time )",
 						"EndDate" : "25-10-2019",
-						"EndTime" : "4:30",
-						"CityTownId" : 2,
-						"CityTownSuburb" : "CASSIDY (NANAIMO)",
-						"StateProvinceId" : 1,
-						"StateProvince" : "BC",
-						"Availibility" : 9,
-						"ColourCode" : 0
+						"Description" : "( Task Description )",
+						"ColourCode" : 18
 					},
 					{
-						"EventId" : "EVT-37332-SZPAPC",
-						"CourseId" : 2,
-						"CourseName" : "Counterbalanced/Vertical Mast Forklift Operator Training",
-						"StartDate" : "26-10-2019",
-						"StartTime" : "7:59",
-						"EndDate" : "26-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 1,
-						"CityTownSuburb" : "COQUITLAM",
-						"StateProvinceId" : 1,
-						"StateProvince" : "BC",
-						"Availibility" : 3,
-						"ColourCode" : 0
+						"TaskId" : 2,
+						"TaskName" : "( Task Name )",
+						"StartDate" : "20-11-2021",
+						"Time" : "(Task Time )",
+						"EndDate" : "25-10-2019",
+						"Description" : "( Task Description )",
+						"ColourCode" : 16
 					},
-					{
-						"EventId" : "EVT-37558-6NGE05",
-						"CourseId" : 2,
-						"CourseName" : "Counterbalanced/Vertical Mast Forklift Operator Training",
-						"StartDate" : "28-10-2019",
-						"StartTime" : "7:59",
-						"EndDate" : "28-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 9,
-						"CityTownSuburb" : "KELOWNA",
-						"StateProvinceId" : 1,
-						"StateProvince" : "BC",
-						"Availibility" : 7,
-						"ColourCode" : 0
-					},
-					{
-						"EventId" : "EVT-37385-P7VDVX",
-						"CourseId" : 1,
-						"CourseName" : "Aerial Work Platform (Non OSSA) Operator Training",
-						"StartDate" : "29-10-2019",
-						"StartTime" : "8:30",
-						"EndDate" : "29-10-2019",
-						"EndTime" : "4:30",
-						"CityTownId" : 2,
-						"CityTownSuburb" : "CASSIDY (NANAIMO)",
-						"StateProvinceId" : 1,
-						"StateProvince" : "BC",
-						"Availibility" : 2,
-						"ColourCode" : 5
-					},
-					{
-						"EventId" : "EVT-37415-XZGJ81",
-						"CourseId" : 1,
-						"CourseName" : "Aerial Work Platform (Non OSSA) Operator Training",
-						"StartDate" : "29-10-2019",
-						"StartTime" : "7:59",
-						"EndDate" : "29-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 3,
-						"CityTownSuburb" : "PRINCE GEORGE",
-						"StateProvinceId" : 1,
-						"StateProvince" : "BC",
-						"Availibility" : 8,
-						"ColourCode" : 5
-					},
-					{
-						"EventId" : "EVT-38873-986VRF",
-						"CourseId" : 1,
-						"CourseName" : "Aerial Work Platform (Non OSSA) Operator Training",
-						"StartDate" : "30-10-2019",
-						"StartTime" : "8:30",
-						"EndDate" : "30-10-2019",
-						"EndTime" : "4:30",
-						"CityTownId" : 2,
-						"CityTownSuburb" : "CASSIDY (NANAIMO)",
-						"StateProvinceId" : 1,
-						"StateProvince" : "BC",
-						"Availibility" : 10,
-						"ColourCode" : 5
-					},
-					{
-						"EventId" : "EVT-38325-0BA77E",
-						"CourseId" : 2,
-						"CourseName" : "Counterbalanced/Vertical Mast Forklift Operator Training",
-						"StartDate" : "30-10-2019",
-						"StartTime" : "7:59",
-						"EndDate" : "30-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 15,
-						"CityTownSuburb" : "CAMBRIDGE",
-						"StateProvinceId" : 5,
-						"StateProvince" : "ON",
-						"Availibility" : 7,
-						"ColourCode" : 0
-					},
-					{
-						"EventId" : "EVT-37504-DQ0V2G",
-						"CourseId" : 4,
-						"CourseName" : "In-House Instructor Training",
-						"StartDate" : "30-10-2019",
-						"StartTime" : "7:59",
-						"EndDate" : "30-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 8,
-						"CityTownSuburb" : "CALGARY",
-						"StateProvinceId" : 3,
-						"StateProvince" : "AB",
-						"Availibility" : 2,
-						"ColourCode" : 1
-					},
-					{
-						"EventId" : "EVT-37571-JHFJJI",
-						"CourseId" : 6,
-						"CourseName" : "Telehandler/Variable Reach Rough Terrain Forklift Operator Training",
-						"StartDate" : "30-10-2019",
-						"StartTime" : "7:59",
-						"EndDate" : "30-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 9,
-						"CityTownSuburb" : "KELOWNA",
-						"StateProvinceId" : 1,
-						"StateProvince" : "BC",
-						"Availibility" : 5,
-						"ColourCode" : 7
-					},
-					{
-						"EventId" : "EVT-38752-EPZED9",
-						"CourseId" : 7,
-						"CourseName" : "Skid Steer Loader Operator Training",
-						"StartDate" : "30-10-2019",
-						"StartTime" : "7:59",
-						"EndDate" : "30-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 1,
-						"CityTownSuburb" : "COQUITLAM",
-						"StateProvinceId" : 1,
-						"StateProvince" : "BC",
-						"Availibility" : 7,
-						"ColourCode" : 9
-					},
-					{
-						"EventId" : "EVT-38094-3911Y9",
-						"CourseId" : 13,
-						"CourseName" : "Practical Rigging Training (AB)",
-						"StartDate" : "30-10-2019",
-						"StartTime" : "7:59",
-						"EndDate" : "30-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 8,
-						"CityTownSuburb" : "CALGARY",
-						"StateProvinceId" : 3,
-						"StateProvince" : "AB",
-						"Availibility" : 10,
-						"ColourCode" : 12
-					},
-					{
-						"EventId" : "EVT-38327-3N7EL6",
-						"CourseId" : 16,
-						"CourseName" : "Blended Online - Counterbalanced/Vertical Mast Forklift Operator Training",
-						"StartDate" : "30-10-2019",
-						"StartTime" : "12:29",
-						"EndDate" : "30-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 15,
-						"CityTownSuburb" : "CAMBRIDGE",
-						"StateProvinceId" : 5,
-						"StateProvince" : "ON",
-						"Availibility" : 10,
-						"ColourCode" : 13
-					},
-					{
-						"EventId" : "EVT-38326-R5M0MA",
-						"CourseId" : 18,
-						"CourseName" : "Blended Online - Stand-Up Reach Truck Operator Training",
-						"StartDate" : "30-10-2019",
-						"StartTime" : "12:29",
-						"EndDate" : "30-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 15,
-						"CityTownSuburb" : "CAMBRIDGE",
-						"StateProvinceId" : 5,
-						"StateProvince" : "ON",
-						"Availibility" : 10,
-						"ColourCode" : 14
-					},
-					{
-						"EventId" : "EVT-38126-05LC7C",
-						"CourseId" : 22,
-						"CourseName" : "ALS - Elevated Work Platform (OSSA)",
-						"StartDate" : "30-10-2019",
-						"StartTime" : "7:59",
-						"EndDate" : "30-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 13,
-						"CityTownSuburb" : "FORT MCMURRAY",
-						"StateProvinceId" : 3,
-						"StateProvince" : "AB",
-						"Availibility" : 1,
-						"ColourCode" : 4
-					},
-					{
-						"EventId" : "EVT-38372-Y4UUBQ",
-						"CourseId" : 1,
-						"CourseName" : "Aerial Work Platform (Non OSSA) Operator Training",
-						"StartDate" : "31-10-2019",
-						"StartTime" : "7:59",
-						"EndDate" : "31-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 9,
-						"CityTownSuburb" : "KELOWNA",
-						"StateProvinceId" : 1,
-						"StateProvince" : "BC",
-						"Availibility" : 7,
-						"ColourCode" : 5
-					},
-					{
-						"EventId" : "EVT-37634-KJR31N",
-						"CourseId" : 2,
-						"CourseName" : "Counterbalanced/Vertical Mast Forklift Operator Training",
-						"StartDate" : "31-10-2019",
-						"StartTime" : "7:59",
-						"EndDate" : "31-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 11,
-						"CityTownSuburb" : "EDMONTON",
-						"StateProvinceId" : 3,
-						"StateProvince" : "AB",
-						"Availibility" : 1,
-						"ColourCode" : 0
-					},
-					{
-						"EventId" : "EVT-38114-3VQSY2",
-						"CourseId" : 20,
-						"CourseName" : "ALS - Counterbalanced/Vertical Mast and Telehandler/Rough Terrain Forklift Operator Training",
-						"StartDate" : "31-10-2019",
-						"StartTime" : "7:59",
-						"EndDate" : "31-10-2019",
-						"EndTime" : "4:00",
-						"CityTownId" : 13,
-						"CityTownSuburb" : "FORT MCMURRAY",
-						"StateProvinceId" : 3,
-						"StateProvince" : "AB",
-						"Availibility" : 1,
-						"ColourCode" : 8
-					} ],
+					
+					
+					 ],
 			"LastUpdated" : "23-10-2019"
-		}
-	</script>
-	<script type="text/javascript">
-		function checkTime(i) {
-			if (i < 10) {
-				i = "0" + i;
-			}
-			return i;
-		}
-
-		function startTime() {
-			var today = new Date();
-			var h = today.getHours();
-			var m = today.getMinutes();
-			var s = today.getSeconds();
-			// add a zero in front of numbers<10
-			m = checkTime(m);
-			s = checkTime(s);
-			document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
-			t = setTimeout(function() {
-				startTime()
-			}, 500);
-		}
-		startTime();
+		} */
 	</script>
 	<script>
-		var $rows = $('#table li');
-		$('#search').keyup(function() {
+		var $rows = $('#task h5');
+		$('#searchtask').keyup(function() {
 			var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
 
 			$rows.show().filter(function() {
@@ -1178,24 +712,5 @@
 			}).hide();
 		});
 	</script>
-	<script type="text/javascript">
-		function myFunction() {
-			var input, filter, ul, li, a, i, txtValue;
-			input = document.getElementById("myInput");
-			filter = input.value.toUpperCase();
-			ul = document.getElementById("myUL");
-			li = ul.getElementsByTagName("li");
-			for (i = 0; i < li.length; i++) {
-				a = li[i].getElementsByTagName("a")[0];
-				txtValue = a.textContent || a.innerText;
-				if (txtValue.toUpperCase().indexOf(filter) > -1) {
-					li[i].style.display = "";
-				} else {
-					li[i].style.display = "none";
-				}
-			}
-		}
-	</script>
-
 </body>
 </html>
