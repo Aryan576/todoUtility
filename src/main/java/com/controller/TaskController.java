@@ -1,14 +1,13 @@
 package com.controller;
 
-import java.text.SimpleDateFormat;
+
 import java.util.List;
-import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -85,6 +84,28 @@ public class TaskController {
 
 		return "redirect:/tasks";
 	}
+	@GetMapping("important")
+	public String ImpTasks(Model model, @SessionAttribute("user") UserEntity user)
+	{
+		System.out.println(user.getUserid()+"tasks");
+		List<TaskEntity> utasks=taskrepos.findByUseridAndImportant(user.getUserid(), 1);
+		System.out.println(utasks);
+		model.addAttribute("utasks",utasks);
+		
+		return "important";
+	}
+	
+	@GetMapping("unimportant/{taskid}")
+	public String unimportnatTasks(TaskEntity tasks,@PathVariable("taskid") Long taskid)
+	{
+		
+		TaskEntity utask = taskrepos.findByTaskid(taskid);
+		utask.setImportant(0);
+		
+		taskrepos.save(utask);
+
+		return "redirect:/important";
+	}
 
 	@GetMapping("sessionOver")
 	public String Logout(HttpSession session) {
@@ -103,5 +124,7 @@ public class TaskController {
 		taskrepos.deleteById(taskid);
 		return "redirect:/tasks";
 	}
+	
+	
 
 }

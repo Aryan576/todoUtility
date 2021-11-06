@@ -61,12 +61,12 @@ public class UserController {
 	
 	
 	
-	@GetMapping("/important")
-	public String important() {
-		// TODO Auto-generated method stub
-		return "important";
-		
-	}
+	/*
+	 * @GetMapping("/important") public String important() { // TODO Auto-generated
+	 * method stub return "important";
+	 * 
+	 * }
+	 */
 	
 
 	
