@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,8 +54,8 @@
 										<div class="row ">
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
 												<div class="card-content">
-													<h5 class="font-15">Today's Task</h5>
-													<h2 class="mb-3 font-18">25</h2>
+												<a ><h5  class="font-15">Today's Task</h5></a>
+													<h2 class="mb-3 font-18">${todayscount}</h2>
 													<p class="mb-0">
 														<span class="col-green"></span>
 													</p>
@@ -78,7 +79,7 @@
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
 												<div class="card-content">
 													<h5 class="font-15">Important Task</h5>
-													<h2 class="mb-3 font-18">17</h2>
+													<h2 class="mb-3 font-18">${Important}</h2>
 													<!-- <p class="mb-0"><span class="col-orange">09%</span> Decrease</p> -->
 												</div>
 											</div>
@@ -100,7 +101,7 @@
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
 												<div class="card-content">
 													<h5 class="font-15">My Tasks</h5>
-													<h2 class="mb-3 font-18">2,128</h2>
+													<h2 class="mb-3 font-18">${UserTasks}</h2>
 													<!--  <p class="mb-0"><span class="col-green">18%</span>
                             Increase</p> -->
 												</div>
@@ -186,7 +187,10 @@
 												<th>Action</th>
 											</tr>
 											<tbody id="task">
+									
+												<c:forEach items="${today}" var="tod">	
 												<tr>
+													
 													<td class="p-0 text-center">
 														<div class="custom-checkbox custom-control">
 															<input type="checkbox" data-checkboxes="mygroup"
@@ -195,11 +199,11 @@
 																data-toggle="tooltip" title="Complete Task"></label>
 														</div>
 													</td>
-													<td>Lunch</td>
-													<td>abc</td>
-													<td>2018-01-20</td>
-													<td>2019-05-28</td>
-													<td>7:00 AM</td>
+													<td>${tod.taskname}</td>
+													<td>${tod.description}</td>
+													<td>${tod.startDate}</td>
+													<td>${tod.endDate}</td>
+													<td>${tod.tasktime}</td>
 													<td><a href="#" class="btn btn-icon btn-primary"><i
 															class="far fa-edit" data-toggle="tooltip"
 															title="Edit Task"></i></a>&nbsp;&nbsp; <a href="#"
@@ -209,108 +213,14 @@
 														class="btn btn-icon btn-light" data-toggle="tooltip"
 														title="Mark as Important"><i class="fas fa-star"></i></a>&nbsp;&nbsp;
 													</td>
+												
 												</tr>
-												<tr>
-													<td class="p-0 text-center">
-														<div class="custom-checkbox custom-control">
-															<input type="checkbox" data-checkboxes="mygroup"
-																class="custom-control-input" id="checkbox-2"> <label
-																for="checkbox-2" class="custom-control-label"
-																data-toggle="tooltip" title="Complete Task"></label>
-														</div>
-													</td>
-													<td>Lunch</td>
-
-													<td>abc</td>
-													<td>2018-01-20</td>
-													<td>2019-05-28</td>
-													<td>7:00 AM</td>
-													<td><a href="#" class="btn btn-icon btn-primary"><i
-															class="far fa-edit" data-toggle="tooltip"
-															title="Edit Task"></i></a>&nbsp;&nbsp; <a href="#"
-														class="btn btn-icon btn-danger"><i
-															class="fas fa-trash-alt" data-toggle="tooltip"
-															title="Delete Task"></i></a>&nbsp;&nbsp; <a href="#"
-														class="btn btn-icon btn-light" data-toggle="tooltip"
-														title="Mark as Important"><i class="fas fa-star"></i></a>&nbsp;&nbsp;
-													</td>
-												</tr>
-												<tr>
-													<td class="p-0 text-center">
-														<div class="custom-checkbox custom-control">
-															<input type="checkbox" data-checkboxes="mygroup"
-																class="custom-control-input" id="checkbox-3"> <label
-																for="checkbox-3" class="custom-control-label"
-																data-toggle="tooltip" title="Complete Task"></label>
-														</div>
-													</td>
-													<td>Lunch</td>
-
-													<td>abc</td>
-													<td>2018-01-20</td>
-													<td>2019-05-28</td>
-													<td>7:00 AM</td>
-													<td><a href="#" class="btn btn-icon btn-primary"><i
-															class="far fa-edit" data-toggle="tooltip"
-															title="Edit Task"></i></a>&nbsp;&nbsp; <a href="#"
-														class="btn btn-icon btn-danger"><i
-															class="fas fa-trash-alt" data-toggle="tooltip"
-															title="Delete Task"></i></a>&nbsp;&nbsp; <a href="#"
-														class="btn btn-icon btn-light" data-toggle="tooltip"
-														title="Mark as Important"><i class="fas fa-star"></i></a>&nbsp;&nbsp;
-													</td>
-												</tr>
-												<tr>
-													<td class="p-0 text-center">
-														<div class="custom-checkbox custom-control">
-															<input type="checkbox" data-checkboxes="mygroup"
-																class="custom-control-input" id="checkbox-4"> <label
-																for="checkbox-4" class="custom-control-label"
-																data-toggle="tooltip" title="Complete Task"></label>
-														</div>
-													</td>
-													<td>Lunch</td>
-
-													<td>abc</td>
-													<td>2018-01-20</td>
-													<td>2019-05-28</td>
-													<td>7:00 AM</td>
-													<td><a href="#" class="btn btn-icon btn-primary"><i
-															class="far fa-edit" data-toggle="tooltip"
-															title="Edit Task"></i></a>&nbsp;&nbsp; <a href="#"
-														class="btn btn-icon btn-danger"><i
-															class="fas fa-trash-alt" data-toggle="tooltip"
-															title="Delete Task"></i></a>&nbsp;&nbsp; <a href="#"
-														class="btn btn-icon btn-light" data-toggle="tooltip"
-														title="Mark as Important"><i class="fas fa-star"></i></a>&nbsp;&nbsp;
-													</td>
-												</tr>
-												<tr>
-													<td class="p-0 text-center">
-														<div class="custom-checkbox custom-control">
-															<input type="checkbox" data-checkboxes="mygroup"
-																class="custom-control-input" id="checkbox-5"> <label
-																for="checkbox-5" class="custom-control-label"
-																data-toggle="tooltip" title="Complete Task"></label>
-														</div>
-													</td>
-													<td>Lunch</td>
-
-													<td>abc</td>
-													<td>2018-01-20</td>
-													<td>2019-05-28</td>
-													<td>7:00 AM</td>
-													<td><a href="#" class="btn btn-icon btn-primary"><i
-															class="far fa-edit" data-toggle="tooltip"
-															title="Edit Task"></i></a>&nbsp;&nbsp; <a href="#"
-														class="btn btn-icon btn-danger"><i
-															class="fas fa-trash-alt" data-toggle="tooltip"
-															title="Delete Task"></i></a>&nbsp;&nbsp; <a href="#"
-														class="btn btn-icon btn-light" data-toggle="tooltip"
-														title="Mark as Important"><i class="fas fa-star"></i></a>&nbsp;&nbsp;
-													</td>
-												</tr>
+												</c:forEach>
+												
+												
+												
 											</tbody>
+											
 											<tr>
 												<td colspan="7" style="text-align: center;"><a
 													href="myday"

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
-	
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,7 +58,7 @@
 						<div class="input-group">
 							<input type="text" class="form-control" id="searchtask"
 								placeholder="Search Task">
-							
+
 						</div>
 					</form>
 				</div>
@@ -87,8 +87,8 @@
 
 							<!--Footer-->
 							<div class="modal-footer flex-center">
-								<a href="" class="btn btn-danger">Confirm</a> <a
-									type="button" class="btn btn-outline-danger waves-effect"
+								<a href="" id="deleteTask"  class="btn btn-danger">Confirm</a> <a type="button"
+									class="btn btn-outline-danger waves-effect"
 									data-dismiss="modal">Close</a>
 							</div>
 						</div>
@@ -131,76 +131,76 @@
 
 
 				<div id="task">
-				
-				
-	<c:forEach items="${usertask}" var="user">
-					<h5>
-						<div class="row">
-							<div class="col-12">
-								<div class="card card-primary">
-									<div class="card-header">
-										<div
-											class="custom-checkbox custom-checkbox-table custom-control">
-											<input type="checkbox" data-checkboxes="mygroup"
-												data-checkbox-role="dad" class="custom-control-input"
-												id="checkbox-all"> <label for="checkbox-all"
-												class="custom-control-label" data-toggle="modal" data-target="#modalPush1">&nbsp;</label>
+
+
+					<c:forEach items="${usertask}" var="user">
+						<h5>
+							<div class="row">
+								<div class="col-12">
+									<div class="card card-primary">
+										<div class="card-header">
+											<div
+												class="custom-checkbox custom-checkbox-table custom-control">
+												<input type="checkbox" data-checkboxes="mygroup"
+													data-checkbox-role="dad" class="custom-control-input"
+													id="checkbox-all"> <label for="checkbox-all"
+													class="custom-control-label" data-toggle="modal"
+													data-target="#modalPush1">&nbsp;</label>
+											</div>
+											&nbsp;&nbsp;
+											<h4>${user.taskname}</h4>
+											<div class="card-header-action">
+
+												<a href="updatetask/${user.taskid}"
+													class="btn btn-icon btn-primary"><i class="far fa-edit"
+													data-toggle="tooltip" title="Edit Task"></i></a>&nbsp;&nbsp; <input
+													type="hidden" name="taskid" value="${user.taskid}">
+												<a class="btn btn-icon btn-danger"><i
+													class="fas fa-trash-alt" data-toggle="modal"
+													onclick="setDelId(${user.taskid})" data-target="#modalPush"
+													title="Delete Task"></i></a> &nbsp;&nbsp; <a
+													href="/imptask/${user.taskid}"
+													class="btn btn-icon btn-light" data-toggle="tooltip"
+													title="Mark as Important"><i class="fas fa-star"></i></a>&nbsp;&nbsp;
+											</div>
 										</div>
-										&nbsp;&nbsp;
-										<h4>${user.taskname}</h4>
-										<div class="card-header-action">
-											
-											<a href="updatetask/${user.taskid}" class="btn btn-icon btn-primary"><i
-												class="far fa-edit" data-toggle="tooltip" title="Edit Task"></i></a>&nbsp;&nbsp;
-											
-												<input type="hidden" name="taskid" value="${user.taskid}">	
-											<a  class="btn btn-icon btn-danger"><i
-												class="fas fa-trash-alt" data-toggle="modal" data-target="#modalPush"
-												title="Delete Task"></i></a>
-											&nbsp;&nbsp; 
-											
-											
-											<a href="/imptask/${user.taskid}"class="btn btn-icon btn-light" data-toggle="tooltip"
-												title="Mark as Important"><i class="fas fa-star"></i></a>&nbsp;&nbsp;
+										<div class="card-body">
+											<div class="row">
+
+												<div class="col">
+													<p style="font-size: 15px">${user.description }</p>
+												</div>
+												<div class="col">
+													<p style="font-size: 15px">
+														<b style="color: green">${user.startDate}</b> - <b
+															style="color: red">${user.endDate }</b>
+													</p>
+												</div>
+												<div class="col">
+													<p style="font-size: 15px; color: orange">
+														<b>${user.tasktime }</b>
+													</p>
+												</div>
+
+											</div>
+
+
 										</div>
+
 									</div>
-									<div class="card-body">
-										<div class="row">
-
-											<div class="col">
-												<p style="font-size: 15px">${user.description }</p>
-											</div>
-											<div class="col">
-												<p style="font-size: 15px">
-													<b style="color: green">${user.startDate}</b> - <b
-														style="color: red">${user.endDate }</b>
-												</p>
-											</div>
-											<div class="col">
-												<p style="font-size: 15px; color: orange">
-													<b>${user.tasktime }</b>
-												</p>
-											</div>
-
-										</div>
-
-
-									</div>
-
 								</div>
 							</div>
-						</div>
-					</h5>
+						</h5>
 					</c:forEach>
 
 
 
-				
 
 
 
 
-			
+
+
 
 				</div>
 
@@ -224,6 +224,12 @@
 				return !~text.indexOf(val);
 			}).hide();
 		});
+
+		function setDelId(taskid) {
+	
+			//alert(taskid);
+				$("#deleteTask")[0].href="deletedtasks/"+taskid;
+			}
 	</script>
 </body>
 </html>

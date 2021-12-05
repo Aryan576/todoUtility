@@ -1,18 +1,47 @@
 package com.controller;
 
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.entity.NotesEntity;
 import com.entity.TaskEntity;
+import com.entity.UserEntity;
+import com.repositry.NotesRepositry;
+import com.repositry.TaskRepositry;
 
 @Controller
 public class UserController {
 	
-
+	@Autowired
+	TaskRepositry taskrepos;
+	@Autowired
+	NotesRepositry note;
+	
 	@GetMapping("/userhome")
-	public String users() {
+	public String users(Model model,@SessionAttribute("user") UserEntity user) {
 		// TODO Auto-generated method stub
+		Date d=new Date();
+		
+		  LocalDate obj=LocalDate.now();
+		
+		 
+		  
+			 model.addAttribute("todayscount",taskrepos.countBystartDateAndUserid(obj,user.getUserid())); 
+			 model.addAttribute("Important",taskrepos.countByImportantAndUserid(user.getUserid()));
+			 model.addAttribute("UserTasks",taskrepos.countByUserid(user.getUserid()));
+			 
+			 List<TaskEntity> task=taskrepos.myDay(user.getUserid());
+				System.out.println("Todays"+task);
+				model.addAttribute("today",task);
+		 
 		return "userhome";
 		
 	}
@@ -106,8 +135,13 @@ public class UserController {
 	}
 
 	@GetMapping("/notes")
-	public String notes() {
+	public String notes( Model model,@SessionAttribute("user") UserEntity user) {
 		// TODO Auto-generated method stub
+		
+		NotesEntity nt= note.findByUserid(user.getUserid());
+		
+		model.addAttribute("notes",nt.getNotes());
+		
 		return "notes";
 		
 	}

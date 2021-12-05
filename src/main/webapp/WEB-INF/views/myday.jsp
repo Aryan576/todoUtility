@@ -1,17 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>ToDoAssist</title>
 <!-- General CSS Files -->
-<link rel="stylesheet" href="assets/css/app.min.css">
+<link rel="stylesheet" href="/assets/css/app.min.css">
 <!-- Template CSS -->
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/components.css">
 <!-- Custom style CSS -->
-<link rel="stylesheet" href="assets/css/custom.css">
+<link rel="stylesheet" href="/assets/css/custom.css">
 <link rel='shortcut icon' type='image/x-icon'
 	href='assets/img/favicon.ico' />
 <!-- Font Awesome -->
@@ -56,12 +58,7 @@
 						<div class="input-group">
 							<input type="text" class="form-control" id="searchtask"
 								placeholder="Search Task">
-							<!-- <div class="input-group-btn">
-								<button class="btn btn-primary">
-									<i class="fas fa-search"></i>
-								</button>
-							</div> -->
-						</div>
+												</div>
 					</form>
 				</div>
 				<br> <br> <br>
@@ -136,117 +133,8 @@
 
 				<div id="task">
 
-					<h5>
-						<div class="row">
-							<div class="col-12">
-								<div class="card card-primary">
-									<div class="card-header">
-										<div
-											class="custom-checkbox custom-checkbox-table custom-control">
-											<input type="checkbox" data-checkboxes="mygroup"
-												data-checkbox-role="dad" class="custom-control-input"
-												id="checkbox-all"> <label for="checkbox-all"
-												class="custom-control-label" data-toggle="modal"
-												data-target="#modalPush1">&nbsp;</label>
-										</div>
-										&nbsp;&nbsp;
-										<h4>Task Name 1</h4>
-										<div class="card-header-action">
-											<a href="#" class="btn btn-icon btn-primary"><i
-												class="far fa-edit" data-toggle="tooltip" title="Edit Task"></i></a>&nbsp;&nbsp;
-											<a href="#" class="btn btn-icon btn-danger"><i
-												class="fas fa-trash-alt" data-toggle="modal"
-												data-target="#modalPush" title="Delete Task"></i></a>&nbsp;&nbsp;
-											<a href="#" class="btn btn-icon btn-light"
-												data-toggle="tooltip" title="Mark as Important"><i
-												class="fas fa-star"></i></a>&nbsp;&nbsp;
-										</div>
-									</div>
-									<div class="card-body">
-										<div class="row">
 
-											<div class="col">
-												<p style="font-size: 15px">In the Afternoon</p>
-											</div>
-											<div class="col">
-												<p style="font-size: 15px">
-													<b style="color: green">29-10-2021</b> - <b
-														style="color: red">5-11-2021</b>
-												</p>
-											</div>
-											<div class="col">
-												<p style="font-size: 15px; color: orange">
-													<b>1:00 PM</b>
-												</p>
-											</div>
-
-										</div>
-
-
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</h5>
-
-
-
-					<h5>
-						<div class="row">
-							<div class="col-12">
-								<div class="card card-success">
-									<div class="card-header">
-										<div
-											class="custom-checkbox custom-checkbox-table custom-control">
-											<input type="checkbox" data-checkboxes="mygroup"
-												data-checkbox-role="dad" class="custom-control-input"
-												id="checkbox-all"> <label for="checkbox-all"
-												class="custom-control-label">&nbsp;</label>
-										</div>
-										&nbsp;&nbsp;
-										<h4>Task Name</h4>
-										<div class="card-header-action">
-											<a href="#" class="btn btn-icon btn-primary"><i
-												class="far fa-edit" data-toggle="tooltip" title="Edit Task"></i></a>&nbsp;&nbsp;
-											<a href="#" class="btn btn-icon btn-danger"><i
-												class="fas fa-trash-alt" data-toggle="tooltip"
-												title="Delete Task"></i></a>&nbsp;&nbsp; <a href="#"
-												class="btn btn-icon btn-light" data-toggle="tooltip"
-												title="Mark as Important"><i class="fas fa-star"></i></a>&nbsp;&nbsp;
-										</div>
-									</div>
-									<div class="card-body">
-										<div class="row">
-
-											<div class="col">
-												<p style="font-size: 15px">In the Afternoon</p>
-											</div>
-											<div class="col">
-												<p style="font-size: 15px">
-													<b style="color: green">29-10-2021</b> - <b
-														style="color: red">5-11-2021</b>
-												</p>
-											</div>
-											<div class="col">
-												<p style="font-size: 15px; color: orange">
-													<b>1:00 PM</b>
-												</p>
-											</div>
-
-										</div>
-
-
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</h5>
-
-
-
-
+<c:forEach items="${today}" var="tod">
 					<h5>
 						<div class="row">
 							<div class="col-12">
@@ -260,7 +148,7 @@
 												class="custom-control-label">&nbsp;</label>
 										</div>
 										&nbsp;&nbsp;
-										<h4>Task Name</h4>
+										<h4>${tod.taskname}</h4>
 										<div class="card-header-action">
 											<a href="#" class="btn btn-icon btn-primary"><i
 												class="far fa-edit" data-toggle="tooltip" title="Edit Task"></i></a>&nbsp;&nbsp;
@@ -275,17 +163,17 @@
 										<div class="row">
 
 											<div class="col">
-												<p style="font-size: 15px">In the Afternoon</p>
+												<p style="font-size: 15px">${tod.description}</p>
 											</div>
 											<div class="col">
 												<p style="font-size: 15px">
-													<b style="color: green">29-10-2021</b> - <b
-														style="color: red">5-11-2021</b>
+													<b style="color: green">${tod.startDate}</b> - <b
+														style="color: red">${tod.endDate}</b>
 												</p>
 											</div>
 											<div class="col">
 												<p style="font-size: 15px; color: orange">
-													<b>1:00 PM</b>
+													<b>${tod.tasktime}</b>
 												</p>
 											</div>
 
@@ -298,7 +186,7 @@
 							</div>
 						</div>
 					</h5>
-
+		</c:forEach>
 				</div>
 
 			</div>

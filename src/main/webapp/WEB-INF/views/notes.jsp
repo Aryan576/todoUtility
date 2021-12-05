@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,10 +55,17 @@ textarea {
 					</div>
 				</div>
 
-
-				<form method="post">
-					<textarea id="mytextarea"></textarea>
+			
+		
+		
+		
+				<form action="savenotes" method="post">
+					<textarea id="mytextarea"  name="notes" ></textarea>
+					<button type="submit"><a class="btn btn-primary">Primary</a></button>
 				</form>
+			
+			
+			
 
 
 

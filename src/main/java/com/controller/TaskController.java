@@ -1,6 +1,5 @@
 package com.controller;
 
-
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -79,29 +78,28 @@ public class TaskController {
 	public String imptask(TaskEntity tasks, @PathVariable("taskid") Long taskid) {
 		TaskEntity utask = taskrepos.findByTaskid(taskid);
 		utask.setImportant(1);
-		
+
 		taskrepos.save(utask);
 
 		return "redirect:/tasks";
 	}
+
 	@GetMapping("important")
-	public String ImpTasks(Model model, @SessionAttribute("user") UserEntity user)
-	{
-		System.out.println(user.getUserid()+"tasks");
-		List<TaskEntity> utasks=taskrepos.findByUseridAndImportant(user.getUserid(), 1);
+	public String ImpTasks(Model model, @SessionAttribute("user") UserEntity user) {
+		System.out.println(user.getUserid() + "tasks");
+		List<TaskEntity> utasks = taskrepos.findByUseridAndImportant(user.getUserid(), 1);
 		System.out.println(utasks);
-		model.addAttribute("utasks",utasks);
-		
+		model.addAttribute("utasks", utasks);
+
 		return "important";
 	}
-	
+
 	@GetMapping("unimportant/{taskid}")
-	public String unimportnatTasks(TaskEntity tasks,@PathVariable("taskid") Long taskid)
-	{
-		
+	public String unimportnatTasks(TaskEntity tasks, @PathVariable("taskid") Long taskid) {
+
 		TaskEntity utask = taskrepos.findByTaskid(taskid);
 		utask.setImportant(0);
-		
+
 		taskrepos.save(utask);
 
 		return "redirect:/important";
@@ -125,6 +123,16 @@ public class TaskController {
 		return "redirect:/tasks";
 	}
 	
+	@GetMapping("myday")
+	public String MyDay(Model model,@SessionAttribute("user") UserEntity user)
+	{
+		List<TaskEntity> task=taskrepos.myDay(user.getUserid());
+		System.out.println("Todays"+task);
+		model.addAttribute("today",task);
+		
+		return"myday";
+	}
 	
-
+	
+	
 }
