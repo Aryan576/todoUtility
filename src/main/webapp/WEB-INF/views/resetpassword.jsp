@@ -29,7 +29,7 @@
 							</div>
 							<div class="card-body">
 								<p class="text-muted">Enter Your New Password</p>
-								<form method="POST">
+								<form method="POST" >
 									<div class="form-group">
 										<label for="email">Email</label> <input id="email"
 											type="email" class="form-control" name="email" tabindex="1"

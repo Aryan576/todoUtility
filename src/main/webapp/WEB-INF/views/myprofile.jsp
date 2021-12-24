@@ -156,7 +156,7 @@
 
 								<div class="tab-pane fade" id="changepassword" role="tabpanel"
 									aria-labelledby="profile-tab2">
-									<form method="post" class="needs-validation">
+									<form method="post" class="needs-validation" action="updatepassword"  modelAttribute="passwordAttribute" >
 										<div class="card-header">
 											<h4>Change Password</h4>
 										</div>
@@ -170,8 +170,7 @@
 											</div>
 											<div class="row">
 												<div class="form-group col-md-6 col-12">
-													<label>New Password</label> <input type="password"
-														class="form-control" value="">
+													<label>New Password</label> <input type="password" name="newpassword" class="form-control" value="">
 													<div class="invalid-feedback">Please fill in the New
 														Password</div>
 												</div>
@@ -179,7 +178,7 @@
 											<div class="row">
 												<div class="form-group col-md-6 col-12">
 													<label>Confirm New Password</label> <input type="password"
-														class="form-control" value="">
+														class="form-control" value="" name="confirmpassword">
 													<div class="invalid-feedback">Please fill in the
 														Confirm New Password</div>
 												</div>
